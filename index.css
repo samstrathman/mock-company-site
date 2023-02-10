@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 200; /* this is "extra light" in figma document */
+}
+
+.navbar {
+  background-color: #FCFCFC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 45px;
+}
+.navbar .logo {
+  text-decoration: none;
+  color: #2A2B2A;
+  font-size: 30px;
+}
+.navbar .logo .A {
+  color: #7B9E89;
+  font-weight: bold;
+}
+.hero-section {
+  background-color: #FCFCFC;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.hero-section .hero-text {
+  width: 1273px;
+  height: 587px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,51 @@
+$color-dark: #2A2B2A;
+$color-green: #7B9E89;
+$color-white: #FCFCFC;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200; /* this is "extra light" in figma document */
+}
+
+.navbar {
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 45px;
+
+    .logo {
+        text-decoration: none;
+        color: $color-dark;
+        font-size: 30px;
+        .A {
+            color: $color-green;
+            font-weight: bold;
+        }
+    }
+
+    .menu {
+        
+    }
+}
+
+.hero-section {
+    background-color: $color-white;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    .hero-text {
+        width: 1273px;
+        height: 587px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -50px 0 0 -50px;
+    }
+}
