@@ -19,11 +19,44 @@
         <header>
             <nav class="navbar">
                 <a href="#" class="logo"><span class="A">A</span>fakebrand</a>
-                <svg class="menu" width="120" height="120" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="69.5" cy="69.5" r="5.79167" stroke="#2A2B2A" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="34.75" cy="69.5" r="5.79167" stroke="#2A2B2A" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="104.25" cy="69.5" r="5.79167" stroke="#2A2B2A" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <!--
+                <div id="menu-toggle">
+                    <svg class="menu" width="120" height="120" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="69.5" cy="69.5" r="5.79167" stroke="#2A2B2A" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="34.75" cy="69.5" r="5.79167" stroke="#2A2B2A" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="104.25" cy="69.5" r="5.79167" stroke="#2A2B2A" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                -->
+                <div id="menuToggle">
+                    <!--
+                    A fake / hidden checkbox is used as click reciever,
+                    so you can use the :checked selector on it.
+                    -->
+                    <input type="checkbox" />
+                    
+                    <!--
+                    Some spans to act as a hamburger.
+                    
+                    They are acting like a real hamburger,
+                    not that McDonalds stuff.
+                    -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    
+                    <!--
+                    Too bad the menu has to be inside of the button
+                    but hey, it's pure CSS magic.
+                    -->
+                    <ul id="menu">
+                      <a href="#"><li>Home</li></a>
+                      <a href="#"><li>About</li></a>
+                      <a href="#"><li>Info</li></a>
+                      <a href="#"><li>Contact</li></a>
+                      <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+                    </ul>
+                  </div>
             </nav>
         </header>
         <section class="hero-section">
@@ -88,10 +121,17 @@
         <section class="contact-section">
             <div class="link">
                 <img src="assets/talk-to-us.PNG" alt="Talk to us" class="contact-us"/>
+                <svg class="arrow" width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M77.875 11.125L78.875 11.125L78.875 10.125L77.875 10.125L77.875 11.125ZM40.0846 47.5012C39.6941 47.8917 39.6941 48.5249 40.0846 48.9154C40.4751 49.3059 41.1083 49.3059 41.4988 48.9154L40.0846 47.5012ZM48.2083 12.125L77.875 12.125L77.875 10.125L48.2083 10.125L48.2083 12.125ZM76.875 11.125L76.875 40.7917L78.875 40.7917L78.875 11.125L76.875 11.125ZM77.1679 10.4179L40.0846 47.5012L41.4988 48.9154L78.5821 11.8321L77.1679 10.4179Z" fill="#FCFCFC"/>
+                    <path d="M33.375 14.8333L20.8333 14.8333C18.0049 14.8333 16.5907 14.8333 15.712 15.7119C14.8333 16.5906 14.8333 18.0048 14.8333 20.8333L14.8333 68.1666C14.8333 70.995 14.8333 72.4092 15.712 73.2879C16.5907 74.1666 18.0049 74.1666 20.8333 74.1666L68.1667 74.1666C70.9951 74.1666 72.4093 74.1666 73.288 73.2879C74.1667 72.4092 74.1667 70.995 74.1667 68.1666L74.1667 55.6249" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round"/>
+                </svg>
             </div> 
+            <div class="rectangle eleven"></div>
+            <div class="rectangle twelve"></div>
+            <div class="rectangle thirteen"></div>
         </section>
         <footer>
-
+            <h2 class="copyright">©2023 Afakebrand. All rights reserved</h2>
         </footer>
     <!--
     <div id="div1">

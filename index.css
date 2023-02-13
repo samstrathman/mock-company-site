@@ -1,20 +1,20 @@
-* {
+body {
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: "Inter", sans-serif;
   font-weight: 200; /* this is "extra light" in figma document */
+  overflow-x: hidden;
 }
 
 .navbar {
+  height: 120px;
   margin-top: -10px;
   background-color: #FCFCFC;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 45px;
+  z-index: 10;
 }
 .navbar .logo {
   text-decoration: none;
@@ -25,6 +25,98 @@ body {
   color: #7B9E89;
   font-weight: bold;
 }
+.navbar a {
+  text-decoration: none;
+  color: #2A2B2A;
+  transition: color 0.3s ease;
+}
+.navbar a:hover {
+  color: #7B9E89;
+}
+.navbar #menuToggle {
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  z-index: 10;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+}
+.navbar #menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+.navbar #menuToggle span {
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-bottom: 8px;
+  position: relative;
+  background: #2A2B2A;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 40px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+.navbar #menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+.navbar #menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+.navbar #menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+.navbar #menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+.navbar #menuToggle input:checked ~ span:nth-last-child(2) {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+.navbar #menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 0;
+  padding: 50px;
+  padding-top: 125px;
+  right: -100px;
+  background: #FCFCFC;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+.navbar #menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+.navbar #menuToggle input:checked ~ ul {
+  transform: none;
+  opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  .navbar #menu {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+}
+
 .rectangle {
   position: absolute;
   background-color: #7B9E89;
@@ -34,7 +126,6 @@ body {
 
 .hero-section {
   background-color: #FCFCFC;
-  width: 100vw;
   height: 100vh;
   position: relative;
 }
@@ -132,17 +223,19 @@ body {
 }
 .about-section .services {
   display: flex;
-  width: 70%;
-  margin: auto;
+  width: 75%;
   padding-top: 100px;
   flex-wrap: wrap;
   gap: 40px;
+  align-items: center;
+  justify-content: center;
 }
 .about-section .services .service-elem {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   gap: 30px;
   flex-wrap: wrap;
+  align-items: center;
 }
 .about-section .services .service-elem .service-title {
   text-align: center;
@@ -151,6 +244,7 @@ body {
   font-weight: normal;
   padding-bottom: 40px;
   border-bottom: 2px solid #2A2B2A;
+  color: #2A2B2A;
 }
 .about-section .services .service-elem .service-desc {
   max-width: 40%;
@@ -158,9 +252,10 @@ body {
   font-weight: normal;
   text-indent: 30px;
   text-align: left;
+  color: #2A2B2A;
 }
 .about-section .ten {
-  height: 1700px;
+  height: 2100px;
   width: 15%;
   right: 5%;
   top: 7%;
@@ -169,6 +264,7 @@ body {
 
 .selected-works-section {
   background-color: #2A2B2A;
+  height: 110vh;
 }
 .selected-works-section .display {
   padding: 5%;
@@ -199,13 +295,52 @@ body {
 }
 .contact-section .link {
   height: 90%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  align-items: center;
 }
 .contact-section .link .contact-us {
-  width: 50%;
+  width: 80%;
   max-width: 900px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.contact-section .link .arrow {
+  width: 20%;
+  height: 130px;
+  padding-left: 20px;
+  margin-top: 30px;
+}
+.contact-section .eleven {
+  height: 11px;
+  width: 12%;
+  top: 20%;
+  left: 0;
+}
+.contact-section .twelve {
+  height: 32px;
+  width: 17%;
+  right: 0;
+  top: 76%;
+}
+.contact-section .thirteen {
+  height: 22px;
+  width: 10%;
+  right: 0;
+  top: 82%;
+}
+
+footer {
+  background-color: #FCFCFC;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .copyright {
+  font-weight: 400;
+  font-size: 1.5em;
+  color: #2A2B2A;
 }/*# sourceMappingURL=index.css.map */

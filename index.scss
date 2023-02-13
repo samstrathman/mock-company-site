@@ -2,23 +2,24 @@ $color-dark: #2A2B2A;
 $color-green: #7B9E89;
 $color-white: #FCFCFC;
 
-* {
+body {
     margin: 0;
     padding: 0;
-}
-
-body {
     font-family: 'Inter', sans-serif;
     font-weight: 200; /* this is "extra light" in figma document */
+    overflow-x: hidden;
 }
 
+//navbar and hamburger menu stuff
 .navbar {
+    height: 120px;
     margin-top: -10px;
     background-color: $color-white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 45px;
+    z-index: 10;
 
     .logo {
         text-decoration: none;
@@ -30,8 +31,136 @@ body {
         }
     }
 
-    .menu {
+    //hamburger menu 
+    a {
+        text-decoration: none;
+        color: $color-dark;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: $color-green;
+    }
+
+    #menuToggle {
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 50px;
         
+        z-index: 10;
+        
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #menuToggle input
+    {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        
+        cursor: pointer;
+        
+        opacity: 0; 
+        z-index: 2; 
+        
+        -webkit-touch-callout: none;
+    }
+
+    #menuToggle span
+    {
+        display: block;
+        width: 40px;
+        height: 2px;
+        margin-bottom: 8px;
+        position: relative;
+        
+        background: $color-dark;
+        border-radius: 3px;
+        
+        z-index: 1;
+        
+        transform-origin: 40px 0px;
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+    }
+
+    #menuToggle span:first-child
+    {
+        transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2)
+    {
+        transform-origin: 0% 100%;
+    }
+
+    //Transform all the slices of hamburger into a crossmark.
+    #menuToggle input:checked ~ span
+    {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+    }
+
+    #menuToggle input:checked ~ span:nth-last-child(3)
+    {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    #menuToggle input:checked ~ span:nth-last-child(2)
+    {
+        opacity: 1;
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    #menu
+    {
+        position: absolute;
+        width: 300px;
+        margin: -100px 0 0 0;
+        padding: 50px;
+        padding-top: 125px;
+        right: -100px;
+        
+        background: $color-white;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    #menu li
+    {
+    padding: 10px 0;
+    font-size: 22px;
+    }
+
+    //fade in from the left
+    #menuToggle input:checked ~ ul
+    {
+        transform: none;
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+        #menu {
+            transform: none;
+            opacity: 0;
+
+            transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        }
     }
 }
 
@@ -44,7 +173,6 @@ body {
 
 .hero-section {
     background-color: $color-white;
-    width: 100vw;
     height: 100vh;
     position: relative;
 
@@ -148,17 +276,19 @@ body {
     }  
     .services {
         display: flex;
-        width: 70%;
-        margin: auto;
+        width: 75%;
         padding-top: 100px;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 40px;    
+        align-items: center;  
+        justify-content: center; 
 
         .service-elem {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-end;
             gap: 30px;
             flex-wrap: wrap;
+            align-items: center;
 
             .service-title {
                 text-align: center;
@@ -167,6 +297,7 @@ body {
                 font-weight: normal;
                 padding-bottom: 40px;
                 border-bottom: 2px solid $color-dark;
+                color: $color-dark;
             }
             .service-desc {
                 max-width: 40%;
@@ -174,11 +305,12 @@ body {
                 font-weight: normal;
                 text-indent: 30px;
                 text-align: left;
+                color: $color-dark;
             }
         }
     }
     .ten {
-        height: 1700px;
+        height: 2100px;
         width: 15%;
         right: 5%;
         top: 7%;
@@ -188,6 +320,7 @@ body {
 
 .selected-works-section {
     background-color: $color-dark;
+    height: 110vh;
 
     .display {
         padding: 5%;
@@ -220,14 +353,54 @@ body {
 
     .link {
         height: 90%;
+        width: 50%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        align-items: center;
 
         .contact-us {
-            width: 50%;
+            width: 80%;
             max-width: 900px;
             object-fit: cover;
         }
+        .arrow {
+            width: 20%;
+            height: 130px;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+    }
+    .eleven {
+        height: 11px;
+        width: 12%;
+        top: 20%;
+        left: 0;
+    }
+    .twelve {
+        height: 32px;
+        width: 17%;
+        right: 0;
+        top: 76%;
+    }
+    .thirteen {
+        height: 22px;
+        width: 10%;
+        right: 0;
+        top: 82%;
+    }
+}
+
+footer {
+    background-color: $color-white;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .copyright {
+        font-weight: 400;
+        font-size: 1.5em;
+        color: $color-dark;
     }
 }
