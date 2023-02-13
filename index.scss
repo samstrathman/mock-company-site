@@ -13,6 +13,7 @@ body {
 }
 
 .navbar {
+    margin-top: -10px;
     background-color: $color-white;
     display: flex;
     justify-content: space-between;
@@ -34,18 +35,199 @@ body {
     }
 }
 
+.rectangle {
+    position: absolute;
+    background-color: $color-green;
+    border-radius: 3px;
+    box-shadow: -3px 3px 5px 0 rgba(0, 0, 0, .25);
+}
+
 .hero-section {
     background-color: $color-white;
     width: 100vw;
     height: 100vh;
     position: relative;
 
-    .hero-text {
-        width: 1273px;
-        height: 587px;
-        position: absolute;
-        top: 50%;
+    .img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+        .hero-text {
+            width: 70%;
+            max-width: 1100px;
+            padding-top: 80px;
+            object-fit: cover;
+            margin: auto;
+            z-index: 1;
+        }
+    } 
+    .one {
+        height: 11px;
+        width: 13%;
+        top: -1%;
+        right: 0%;
+        z-index: 2;
+    }
+    .two {
+        height: 14px;
+        width: 6%;
+        top: 68%;
+        right: 0%;
+    }
+    .three {
+        height: 32px;
+        width: 9%;
+        top: 71%;
+        left: 0%;
+    }
+    .four {
+        height: 22px;
+        width: 18%;
+        top: 78%;
+        left: 0%;
+    }
+    .five {
+        height: 9px;
+        width: 16%;
+        top: 85%;
+        left: 35%;
+    }
+}
+
+.transition {
+    position: relative;
+    height: 200px;
+    background-color: $color-white;
+    overflow: hidden;
+    
+    .six {
+        height: 32px;
+        width: 400px;
+        left: 40%;
+        top: 0%;
+    }
+    .seven {
+        height: 32px;
+        width: 400px;
+        left: 45%;
+        top: 30%;
+    }
+    .eight {
+        height: 32px;
+        width: 400px;
         left: 50%;
-        margin: -50px 0 0 -50px;
+        top: 60%;
+    }
+}
+
+.about-section {
+    .about-intro {
+        padding: 5%;
+        position: relative;
+
+        .intro-text{
+            width: 75%;
+            font-size: 2.75em;
+            font-weight: 200;
+        } 
+        .dark-rectangle{
+            .nine {
+                height: 11px;
+                width: 77%;
+                background-color: $color-dark;
+                margin: 30px 0;
+                z-index: 1;
+            }
+        }
+        .our-services {
+            width: 38%;
+            max-width: 1000px;
+            padding-top: 55px;
+        }
+    }  
+    .services {
+        display: flex;
+        width: 70%;
+        margin: auto;
+        padding-top: 100px;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        .service-elem {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+
+            .service-title {
+                text-align: center;
+                width: 200px;
+                font-size: 2.5em;
+                font-weight: normal;
+                padding-bottom: 40px;
+                border-bottom: 2px solid $color-dark;
+            }
+            .service-desc {
+                max-width: 40%;
+                font-size: 1em;
+                font-weight: normal;
+                text-indent: 30px;
+                text-align: left;
+            }
+        }
+    }
+    .ten {
+        height: 1700px;
+        width: 15%;
+        right: 5%;
+        top: 7%;
+        z-index: 0;
+    }
+}
+
+.selected-works-section {
+    background-color: $color-dark;
+
+    .display {
+        padding: 5%;
+        padding-top: 10%;
+
+        .display-title {
+            font-size: 4em;
+            font-weight: 200;
+            color: $color-white;
+        }
+        .display-box {
+            width: 500px;
+            height: 500px;
+            background-color: $color-white;
+            border: 5px solid $color-green;
+        }
+        .display-company {
+            font-size: 2em;
+            font-weight: 200;
+            color: $color-white;
+        }
+    }
+}
+
+.contact-section {
+    background-color: $color-dark;
+    padding: 5%;
+    height: 90vh;
+    position: relative;
+
+    .link {
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .contact-us {
+            width: 50%;
+            max-width: 900px;
+            object-fit: cover;
+        }
     }
 }
