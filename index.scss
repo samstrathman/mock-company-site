@@ -7,7 +7,11 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     font-weight: 200; /* this is "extra light" in figma document */
+}
+
+.site-wrapper{
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* Nav Bar and Hero Section */
@@ -233,31 +237,45 @@ body {
     position: relative;
     height: 200px;
     background-color: $color-white;
-    overflow: hidden;
+    animation-name: transition;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -8s);
+  
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+
+    @keyframes transition {
+        from {left: -100%}
+        to {left: 100%}
+    }
     
     .six {
-        height: 32px;
+        height: 27px;
         width: 400px;
-        left: 40%;
+        left: 0%;
         top: 0%;
     }
     .seven {
-        height: 32px;
+        height: 27px;
         width: 400px;
-        left: 45%;
+        left: 10%;
         top: 30%;
     }
     .eight {
-        height: 32px;
+        height: 27px;
         width: 400px;
-        left: 50%;
+        left: 20%;
         top: 60%;
     }
 }
 
-/* About Section */
 
 .about-section {
+
     .about-intro {
         padding: 5%;
         position: relative;
@@ -329,11 +347,23 @@ body {
         }
     }
     .ten {
-        height: 2100px;
         width: 15%;
+        height: 10px;
         right: 5%;
         top: 7%;
         z-index: 5;
+    }
+    .elongate {
+        animation-name: elongate;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        animation-delay: 2s;
+    }
+
+    @keyframes elongate {
+        from {height: 10px}
+        to {height: 2100px}
     }
 }
 
@@ -344,6 +374,7 @@ body {
     height: 110vh;
 
     .display {
+        width: 70%;
         padding: 5%;
         padding-top: 10%;
 
@@ -352,24 +383,100 @@ body {
             font-weight: 200;
             color: $color-white;
         }
-        .display-box {
-            width: 75%;
-            height: 200px;
-            background-color: $color-white;
-            border: 4px solid $color-green;
+        .display-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items:center;
+                        
+            .slideshow-container {
+                .display-box {
+                    max-width: 470px;
+                    max-height: 470px;
+                    background-color: $color-white;
+                    border: 4px solid $color-green;
+                    box-shadow: -3px 3px 5px 0 rgba(0, 0, 0, .25);
+                }
 
-            /* Slideshow styles */
-            .slideshow-img  {
-                display:none;
-                width: 100%;
+                /* Slideshow styles */
+                .slideshow-img {
+                    width: 470px;
+                    height: 470px;
+                    object-fit: cover;
+                    display: none;
+                }
+
+                .slideshow-btn {
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    color: $color-white;
+                    background-color: $color-green;
+                    padding: 10px 10px;
+                    padding-right: 15px;
+                    border-radius: 5px;
+                    width: 70px;
+                    margin: 0;
+                    margin-top: 30px;
+                    transition: all .3s ease;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: -3px 3px 5px 0 rgba(0, 0, 0, .25);
+                }
+                
+                .slideshow-btn > .arrow {
+                    width: 10px;
+                    height: 10px;
+                    border-right: 2px solid $color-white;
+                    border-bottom: 2px solid $color-white;
+                    transform: rotate(-45deg);
+                    margin: 5px 6px;
+                    transition: all .3s ease;
+                }
+                
+                .slideshow-btn:hover > .arrow {
+                    transform: rotate(-45deg) translate(4px, 4px);
+                    border-color: text-hover-color;
+                }
+                
+                .slideshow-btn:hover > .arrow::before {
+                    opacity: 1;
+                    width: 8px;
+                }
+                
+                .slideshow-btn:hover {
+                    background-color: $color-dark;
+                    color: $color-white;
+                }
             }
-            
-            
-        }
-        .display-company {
-            font-size: 2em;
-            font-weight: 200;
-            color: $color-white;
+        
+            .name-and-desc {
+                display: inline-block;  
+                text-align: left;  
+                width: 460px;
+                
+                .company-name {
+                    font-size: 2em;
+                    font-weight: 200;
+                    color: $color-white;
+                    margin: 0;
+                }
+                .company-desc {
+                    font-size: 1em;
+                    font-weight: 200;
+                    color: $color-white;
+                }
+            }
+
+            .fade {
+                animation-name: fade;
+                animation-duration: 1s;
+            }
+    
+            @keyframes fade {
+                from {opacity: .7} 
+                to {opacity: 1}
+            }
         }
     }
 }
@@ -382,39 +489,50 @@ body {
     height: 90vh;
     position: relative;
 
-    .link {
-        height: 90%;
-        width: 50%;
+    .link-wrapper {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        align-items: center;
-        margin-top: 50px;
+        height: 90%;
+        
+        .link {
+            width: 50%;
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 50px;
 
-        .contact-us-img {
-            width: 80%;
-            max-width: 900px;
-            object-fit: cover;
-            padding-top: 15px;
-        }
-        .contact-us-text {
-            display: none;
-            color: $color-white;
-            font-size: 3em;
-            font-weight: 200;
-            padding-top: 18px;
-            text-align: left;
-            display: none;
-        }
-        .arrow {
-            width: 20%;
-            height: 130px;
-            padding-left: 20px;
-            margin-top: 30px;
-            stroke: 1px;
-            path {
-                stroke: $color-white;
-                stroke-width: 2px;
+                &:hover {
+                .arrow{
+                    transition: transform .2s ease-in;
+                    transform: translate(12%);
+                }
+            }
+
+            .contact-us-img {
+                width: 80%;
+                max-width: 900px;
+                object-fit: cover;
+                padding-top: 15px;
+            }
+            .contact-us-text {
+                display: none;
+                color: $color-white;
+                font-size: 3em;
+                font-weight: 200;
+                padding-top: 25px;
+                text-align: left;
+                display: none;
+            }
+            .arrow {
+                margin-top: 25px;
+                width: 15%;
+                stroke: 1px;
+                
+                path {
+                    stroke: $color-white;
+                    stroke-width: 2px;
+                }
             }
         }
     }
@@ -510,26 +628,33 @@ footer {
 
     /* Works Section */    
     .selected-works-section {
-        height: 550px;
         .display {
             .display-title {
                 font-size: 2.25em!important;
             }
-            .display-box {
-                width: 75%!important;
-                height: 300px;
-                border: 2px solid $color-green!important;
+            
+            .slideshow-container {
+
+
+                .display-box {
+                    width: 270px!important;
+                    height: 400px!important;
+                }
+
+                /* Slideshow styles */
+                .slideshow-img  {
+                    width: 270px!important;
+                    height: 400px!important;
+                }
             }
-            .display-company {
-                font-size: 1.5em!important;
+            .name-and-desc {
+                width: 270px!important;
             }
         }
     }
 
     //make that really long rectangle shorter!
-    .ten {
-        height: 1800px!important;
-    }
+    
 
     /* Call-to-Action Section */
     .link {

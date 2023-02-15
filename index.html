@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="site-wrapper">
         <header>
             <nav class="navbar">
                 <a href="#" class="logo"><span class="A">A</span>fakebrand</a>
@@ -90,32 +91,40 @@
                         </p>
                     </div>
                 </div>
-                <div class="rectangle ten"></div>
+                <div class="rectangle ten" id="ten"></div>
             <div>
         </section>
         <section id="works" class="selected-works-section">
             <div class="display">
                 <h1 class="display-title">Selected Works:</h1>
-                <div class="display-box" id="display-box">
-                    <!-- carousel slideshow -->
-                    <div class="slide-container" id="slide-container">
-                        <!-- slideData.js will populate the slides here -->
-                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                <div class="display-container">
+                    <div class="slideshow-container">
+                        <div class="display-box" id="display-box">
+                            <!-- slideshow -->
+                            <div class="slide-container" id="slide-container">
+                                <!-- slideData.js will populate the slides here -->
+                            </div>
+                        </div>
+                        <button class="slideshow-btn" onclick="plusDivs(1)"><span class="arrow"></button>
+                    </div>
+                    <div class="name-and-desc fade" id="name-and-desc">
+                        <p class="company-name" id="company-name"><!-- populated by slideData.js --></p>
+                        <p class="company-desc" id="company-desc"><!-- populated by slideData.js --></p>
                     </div>
                 </div>
-                <p class="display-company" id="company-name"></p>
             </div>
         </section>
         <section class="contact-section" id="contact">
-            <div class="link">
-                <img src="assets/talk-to-us.PNG" alt="Talk to us" class="contact-us-img"/>
-                <h1 class="contact-us-text">Talk to us</h1>
-                <svg class="arrow" width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M77.875 11.125L78.875 11.125L78.875 10.125L77.875 10.125L77.875 11.125ZM40.0846 47.5012C39.6941 47.8917 39.6941 48.5249 40.0846 48.9154C40.4751 49.3059 41.1083 49.3059 41.4988 48.9154L40.0846 47.5012ZM48.2083 12.125L77.875 12.125L77.875 10.125L48.2083 10.125L48.2083 12.125ZM76.875 11.125L76.875 40.7917L78.875 40.7917L78.875 11.125L76.875 11.125ZM77.1679 10.4179L40.0846 47.5012L41.4988 48.9154L78.5821 11.8321L77.1679 10.4179Z" fill="#FCFCFC"/>
-                    <path d="M33.375 14.8333L20.8333 14.8333C18.0049 14.8333 16.5907 14.8333 15.712 15.7119C14.8333 16.5906 14.8333 18.0048 14.8333 20.8333L14.8333 68.1666C14.8333 70.995 14.8333 72.4092 15.712 73.2879C16.5907 74.1666 18.0049 74.1666 20.8333 74.1666L68.1667 74.1666C70.9951 74.1666 72.4093 74.1666 73.288 73.2879C74.1667 72.4092 74.1667 70.995 74.1667 68.1666L74.1667 55.6249" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </div> 
+            <div class="link-wrapper">
+                <a class="link" href="#">
+                    <img src="assets/talk-to-us.PNG" alt="Talk to us" class="contact-us-img"/>
+                    <h1 class="contact-us-text">Talk to us</h1>
+                    <svg class="arrow" width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M77.875 11.125L78.875 11.125L78.875 10.125L77.875 10.125L77.875 11.125ZM40.0846 47.5012C39.6941 47.8917 39.6941 48.5249 40.0846 48.9154C40.4751 49.3059 41.1083 49.3059 41.4988 48.9154L40.0846 47.5012ZM48.2083 12.125L77.875 12.125L77.875 10.125L48.2083 10.125L48.2083 12.125ZM76.875 11.125L76.875 40.7917L78.875 40.7917L78.875 11.125L76.875 11.125ZM77.1679 10.4179L40.0846 47.5012L41.4988 48.9154L78.5821 11.8321L77.1679 10.4179Z" fill="#FCFCFC"/>
+                        <path d="M33.375 14.8333L20.8333 14.8333C18.0049 14.8333 16.5907 14.8333 15.712 15.7119C14.8333 16.5906 14.8333 18.0048 14.8333 20.8333L14.8333 68.1666C14.8333 70.995 14.8333 72.4092 15.712 73.2879C16.5907 74.1666 18.0049 74.1666 20.8333 74.1666L68.1667 74.1666C70.9951 74.1666 72.4093 74.1666 73.288 73.2879C74.1667 72.4092 74.1667 70.995 74.1667 68.1666L74.1667 55.6249" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div> 
+            </div>
             <div class="rectangle eleven"></div>
             <div class="rectangle twelve"></div>
             <div class="rectangle thirteen"></div>
@@ -129,6 +138,8 @@
         <p id="p2">This is another paragraph.</p>
     </div>
     -->
-    <script src="slideData.js"></script>                 
+    <script src="slideData.js"></script>  
+    <script src="index.js"></script>  
+    </div>             
     </body>
 </html>
