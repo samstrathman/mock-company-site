@@ -170,7 +170,7 @@ body {
 
     #menuToggle input:checked ~ span:nth-last-child(2) {
         opacity: 1;
-        -webkit-transform: rotate(-45deg) translate(0, -1px);
+        transform: rotate(-45deg) translate(0, -1px);
     }
 
     #menu {
