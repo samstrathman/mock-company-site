@@ -159,8 +159,8 @@ body {
     //Transform all the slices of hamburger into a crossmark.
     #menuToggle input:checked ~ span {
         opacity: 1;
-        transform: rotate(45deg) translate(-2px, -1px);
-        background: #232323;
+        transform: rotate(-45deg) translate(-2px, -1px);
+        background: $color-dark;
     }
 
     #menuToggle input:checked ~ span:nth-last-child(3) {
@@ -183,7 +183,7 @@ body {
         
         background: $color-white;
         list-style-type: none;
-        -webkit-font-smoothing: antialiased;
+        //-webkit-font-smoothing: antialiased;
         /* to stop flickering of text in safari */
         
         transform-origin: 0% 0%;

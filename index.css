@@ -133,8 +133,8 @@ body {
 }
 .navbar #menuToggle input:checked ~ span {
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  transform: rotate(-45deg) translate(-2px, -1px);
+  background: #2A2B2A;
 }
 .navbar #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
@@ -153,7 +153,6 @@ body {
   right: -100px;
   background: #FCFCFC;
   list-style-type: none;
-  -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
   transform: translate(100%, 0);

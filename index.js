@@ -1,3 +1,4 @@
+//this section of code removes :hover styles on touch devices, fixes a couple minor issues
 function hasTouch() {
     return 'ontouchstart' in document.documentElement
            || navigator.maxTouchPoints > 0
@@ -19,7 +20,7 @@ function hasTouch() {
         }
       }
     } catch (ex) {}
-  }
+}
 
 //Stuff for scroll animations
 window.addEventListener(
