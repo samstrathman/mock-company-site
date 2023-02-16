@@ -2,24 +2,33 @@
 window.addEventListener(
     "scroll",
     () => {
-      document.body.style.setProperty(
-        "--scroll",
-        window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
-      );
+        document.body.style.setProperty(
+          "--scroll",
+          window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
+        );
     },
     false
-  );
+);
 
+//listen for scroll event and call animate function
+document.addEventListener('scroll', animate);
 
 //Stuff to trigger animation when it's in view
-// get the element to animate
+//get the element to animate
 var element = document.getElementById('ten');
 var elementHeight = element.clientHeight;
 
-// listen for scroll event and call animate function
-document.addEventListener('scroll', animate);
+//animate element when it is in view
+function animate() {
+    // is element in view?
+    if (inView()) {
+        // element is in view, add class to element
+        element.classList.add('elongate');
+    }
+}
 
-// check if element is in view
+
+//check if element is in view
 function inView() {
     // get window height
     var windowHeight = window.innerHeight;
@@ -39,12 +48,14 @@ function inView() {
     return false;
 }
 
-// animate element when it is in view
-function animate() {
-    // is element in view?
-    if (inView()) {
-        // element is in view, add class to element
-        element.classList.add('elongate');
-    }
-}
+
+
+//animate the background color shift and logo and hamburger menu
+let worksSection = document.getElementById('works-section');
+//inView(worksSection).on('enter', function(el){
+//  var color = el.attributes('data-background-color');
+//  console.log(color);
+//})
+
+inView(worksSection).on('enter', console.log('hi'));
 
