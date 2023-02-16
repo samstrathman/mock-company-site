@@ -3,11 +3,29 @@ body {
   padding: 0;
   font-family: "Inter", sans-serif;
   font-weight: 200; /* this is "extra light" in figma document */
+  background-color: #FCFCFC;
+  animation-name: fade-to-dark;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll-fade) * -5s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
+@keyframes fade-to-dark {
+  0% {
+    background-color: #FCFCFC;
+  }
+  100% {
+    background-color: #2A2B2A;
+  }
+}
 .site-wrapper {
   overflow-x: hidden;
-  width: 100%;
+  max-width: 1920px;
+  margin: auto;
 }
 
 /* Nav Bar and Hero Section */
@@ -28,15 +46,39 @@ body {
   text-decoration: none;
   color: #2A2B2A;
   font-size: 30px;
+  animation-name: fade-to-light;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll-fade) * -5s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 .navbar .logo .A {
   color: #7B9E89;
   font-weight: bold;
 }
+@keyframes fade-to-light {
+  0% {
+    color: #2A2B2A;
+  }
+  100% {
+    color: #FCFCFC;
+  }
+}
 .navbar a {
   text-decoration: none;
   color: #2A2B2A;
   transition: color 0.3s ease;
+  animation-name: fade-to-light;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll-fade) * -5s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 .navbar a:hover {
   color: #7B9E89;
@@ -73,6 +115,15 @@ body {
   z-index: 1;
   transform-origin: 40px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  animation-name: fade-to-dark;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll-fade) * -5s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 .navbar #menuToggle span:first-child {
   transform-origin: 0% 0%;
@@ -107,6 +158,14 @@ body {
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  animation-name: fade-to-dark;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll-fade) * -5s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 .navbar #menu li {
   padding: 10px 0;
@@ -132,7 +191,6 @@ body {
 }
 
 .hero-section {
-  background-color: #FCFCFC;
   height: 100vh;
   position: relative;
   margin-top: 100px;
@@ -196,7 +254,6 @@ body {
 .transition {
   position: relative;
   height: 200px;
-  background-color: #FCFCFC;
   animation-name: transition;
   animation-duration: 3s;
   animation-fill-mode: forwards;
@@ -321,7 +378,6 @@ body {
 
 /* Works Section */
 .selected-works-section {
-  background-color: #2A2B2A;
   height: 110vh;
 }
 .selected-works-section .display {
@@ -426,7 +482,6 @@ body {
 
 /* Call-to-Action Section */
 .contact-section {
-  background-color: #2A2B2A;
   padding: 5%;
   height: 90vh;
   position: relative;
@@ -443,6 +498,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
+  text-decoration: none;
 }
 .contact-section .link-wrapper .link:hover .arrow {
   transition: transform 0.2s ease-in;

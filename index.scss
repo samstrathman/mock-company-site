@@ -1,3 +1,4 @@
+//Define main colors
 $color-dark: #2A2B2A;
 $color-green: #7B9E89;
 $color-white: #FCFCFC;
@@ -7,12 +8,27 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     font-weight: 200; /* this is "extra light" in figma document */
-    //background-color: $color-white;
+    background-color: $color-white;
+
+    animation-name: fade-to-dark;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll-fade) * -5s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes fade-to-dark {
+    0% {background-color: $color-white}
+    100% {background-color: $color-dark;}
 }
 
 .site-wrapper{
     overflow-x: hidden;
-    width: 100%;
+    max-width: 1920px;
+    margin: auto;
 }
 
 /* Nav Bar and Hero Section */
@@ -36,17 +52,41 @@ body {
         text-decoration: none;
         color: $color-dark;
         font-size: 30px;
+
+        animation-name: fade-to-light;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll-fade) * -5s);
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+
         .A {
             color: $color-green;
             font-weight: bold;
         }
     }
 
+    @keyframes fade-to-light {
+        0% {color: $color-dark;}
+        100% {color: $color-white}
+    }
+    
     //hamburger menu 
     a {
         text-decoration: none;
         color: $color-dark;
         transition: color 0.3s ease;
+
+        animation-name: fade-to-light;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll-fade) * -5s);
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
     }
 
     a:hover {
@@ -96,6 +136,16 @@ body {
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                     opacity 0.55s ease;
+
+        animation-name: fade-to-dark;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        animation-direction: reverse;
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll-fade) * -5s);
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
     }
 
     #menuToggle span:first-child {
@@ -140,6 +190,15 @@ body {
         transform: translate(100%, 0);
         
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+        animation-name: fade-to-dark;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll-fade) * -5s);
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
     }
 
     #menu li {
@@ -171,7 +230,6 @@ body {
 }
 
 .hero-section {
-    background-color: $color-white;
     height: 100vh;
     position: relative;
     margin-top: 100px;
@@ -237,15 +295,13 @@ body {
 .transition {
     position: relative;
     height: 200px;
-    background-color: $color-white;
+
     animation-name: transition;
     animation-duration: 3s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-
     animation-play-state: paused;
     animation-delay: calc(var(--scroll) * -8s);
-  
     animation-iteration-count: 1;
     animation-fill-mode: both;
 
@@ -371,7 +427,6 @@ body {
 /* Works Section */
 
 .selected-works-section {
-    background-color: $color-dark;
     height: 110vh;
 
     .display {
@@ -388,7 +443,7 @@ body {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
-            align-items:center;
+            align-items: center;
                         
             .slideshow-container {
                 .display-box {
@@ -485,7 +540,6 @@ body {
 /* Call-to-Action Section */
 
 .contact-section {
-    background-color: $color-dark;
     padding: 5%;
     height: 90vh;
     position: relative;
@@ -502,6 +556,7 @@ body {
             justify-content: flex-start;
             align-items: center;
             margin-top: 50px;
+            text-decoration: none;
 
                 &:hover {
                 .arrow{
@@ -596,8 +651,6 @@ footer {
         display:inherit!important;
     }
 
-
-
     /* About Section */
     //make text fit the screen size a bit better
     .about-intro {
@@ -636,7 +689,6 @@ footer {
             
             .slideshow-container {
 
-
                 .display-box {
                     width: 270px!important;
                     height: 400px!important;
@@ -653,9 +705,6 @@ footer {
             }
         }
     }
-
-    //make that really long rectangle shorter!
-    
 
     /* Call-to-Action Section */
     .link {
